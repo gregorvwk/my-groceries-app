@@ -1,22 +1,18 @@
-import React, { Component } from "react"
+import React from "react"
 
-class ListItem extends Component {
-    constructor(props){
-    super(props)
-    this.state = {id: props.id, title: props.title, handleClickGroceryItem: props.handleClickGroceryItem}
-    }
-    render(){
+function ListItem(props){
+
         return(
     <li 
-        key={this.state.id}
+        key={props.item.id}
         className="list-item"
-        onClick={() => this.state.handleClickGroceryItem(this.state.id)}
-        title={this.state.title}
+        onClick={() => props.item.handleClickGroceryItem(props.item.id)}
+        title={props.item.title}
     >
-        {this.state.title}
+        {props.item.title}
     </li>
         )
-    }
+    
 }
 
 export default ListItem

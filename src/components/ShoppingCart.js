@@ -1,22 +1,17 @@
-import React, { Component } from "react"
-import List from "./List"
+import React from "react"
+// import List from "./List"
 
-class ShoppingCart extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {id: props.id, title: props.title}
+function ShoppingCart(){
 
-    }
-    render(){
     return (
         <div>
-            <List 
+            {/* <List 
             id={this.state.id}
-            title={this.state.title}
-            />
+            title={this.state.title} */}
+            {/* /> */}
         </div>
     )
 }
-}
+
 
 export default ShoppingCart
