@@ -5,7 +5,7 @@ function GroceryList(props){
 
         return (
             <div>
-                <List item={props} />
+                <List item={props} handleClick={props} />
             </div>
         )
 }

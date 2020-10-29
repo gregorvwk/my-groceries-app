@@ -18,14 +18,17 @@ class Container extends Component {
 
 
     handleClickGroceryItem(idItem) {
-        console.log("click" + idItem)
+        const clickedItem = this.state.groceryListItems.filter(item => item.id === idItem)
+        this.setState(prevState => ([...prevState.shoppingListItems, clickedItem]))
+        console.log(this.state.shoppingListItems)
+        console.log(clickedItem)
     }
 
     render() {
     return(
         <div>
             <h1>Grocery List</h1>
-            <GroceryList item={this.state.groceryListItems} handleClick={this.handleClickGroceryItem} />
+            <GroceryList item={this.state.groceryListItems} handleClick={this.handleClickGroceryItem}/>
             <h1>Shopping Cart</h1>
             <ShoppingCart item={this.state.shoppingListItems} />
         </div>
