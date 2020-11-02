@@ -3,12 +3,9 @@ import List from "./List"
 
 function ShoppingCart(props){
 
-    function handleItemClick(idItem){
-        console.log("click" + idItem)
-    }
     return (
         <div>
-            <List item={props} handleClick={handleItemClick}/>
+            <List item={props} handleClick={props}/>
             <button onClick={() => props.handleButton()}>Empty Cart</button>
         </div>
     )

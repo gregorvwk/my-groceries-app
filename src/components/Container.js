@@ -11,7 +11,8 @@ class Container extends Component {
                 {id: 2, title: "Melk"},
                 {id: 3, title: "Sla"} 
             ],
-            shoppingListItems: []
+            shoppingListItems: [],
+            itemId: 0
         }
         this.handleClickGroceryItem = this.handleClickGroceryItem.bind(this)
         this.handleEmptyClick = this.handleEmptyClick.bind(this)
@@ -31,14 +32,33 @@ class Container extends Component {
     handleEmptyClick(){
         this.setState({shoppingListItems: []})
     }
+    inputItem(Item){
+        this.setState(prevState => {
+            const newItemId = prevState.itemId++
+            return newItemId
+        })
+        this.setState(prevState => {
+            const newItem = {id: this.state.itemId, title: Item}
+            const addItem = [...prevState.groceryListItems, newItem]
+            return {groceryListItems: addItem}
+        })
+    }
 
     render() {
     return(
         <div>
             <h1>Grocery List</h1>
-            <GroceryList item={this.state.groceryListItems} handleClick={this.handleClickGroceryItem}/>
+            <GroceryList 
+                item={this.state.groceryListItems} 
+                handleClick={this.handleClickGroceryItem}
+                onSubmit={this.inputItem}
+            />
             <h1>Shopping Cart</h1>
-            <ShoppingCart item={this.state.shoppingListItems} handleButton={this.handleEmptyClick}/>
+            <ShoppingCart 
+                item={this.state.shoppingListItems} 
+                handleButton={this.handleEmptyClick} 
+                handleClick={e => e.preventDefault}
+            />
         </div>
         )
     }
