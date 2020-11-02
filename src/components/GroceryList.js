@@ -6,7 +6,7 @@ function GroceryList(props){
 
         return (
             <div>
-                <InputField onSubmit={handleItem}/>
+                <InputField handleSubmit={props}/>
                 <List item={props} handleClick={props}/>
             </div>
         )

@@ -6,22 +6,23 @@ class InputField extends Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
-    handleChange(event){
-        const {value} = event.target
-        this.setState({ item: value })
-        console.log(this.props.item)
-    }
+    // handleChange(event){
+    //     const {value} = event.target
+    //     this.setState({ item: value })
+    //     console.log(this.props.item)
+    // }
  
 
     render(){
+
     return(
         <div>
             <input 
                 type="text" 
                 placeholder="Item"
                 name="inputItem"
-                value={this.props.item}
-                onSubmit={() => props.handleitem()}
+                value={this.handleChange}
+                onSubmit={() => props.handleItem(value)}
                 ></input>
             <button type="submit">Submit</button>
         </div>

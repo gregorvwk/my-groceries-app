@@ -51,7 +51,7 @@ class Container extends Component {
             <GroceryList 
                 item={this.state.groceryListItems} 
                 handleClick={this.handleClickGroceryItem}
-                onSubmit={this.inputItem}
+                handleSubmit={this.inputItem}
             />
             <h1>Shopping Cart</h1>
             <ShoppingCart 
