@@ -14,14 +14,22 @@ class Container extends Component {
             shoppingListItems: []
         }
         this.handleClickGroceryItem = this.handleClickGroceryItem.bind(this)
+        this.handleEmptyClick = this.handleEmptyClick.bind(this)
     }
 
 
     handleClickGroceryItem(idItem) {
-        const clickedItem = this.state.groceryListItems.filter(item => item.id === idItem)
-        this.setState(prevState => ([...prevState.shoppingListItems, clickedItem]))
-        console.log(this.state.shoppingListItems)
-        console.log(clickedItem)
+        let clickedItem = this.state.groceryListItems.filter(item => item.id === idItem)
+        clickedItem = {id: clickedItem[0].id, title: clickedItem[0].title }
+        this.setState(prevState => {
+            const newList = [...prevState.shoppingListItems, clickedItem]
+           return {shoppingListItems: newList}
+        })
+        let newGroceryList = this.state.groceryListItems.filter(item => item.id !== idItem)
+        this.setState({groceryListItems: newGroceryList})
+    }
+    handleEmptyClick(){
+        this.setState({shoppingListItems: []})
     }
 
     render() {
@@ -30,7 +38,7 @@ class Container extends Component {
             <h1>Grocery List</h1>
             <GroceryList item={this.state.groceryListItems} handleClick={this.handleClickGroceryItem}/>
             <h1>Shopping Cart</h1>
-            <ShoppingCart item={this.state.shoppingListItems} />
+            <ShoppingCart item={this.state.shoppingListItems} handleButton={this.handleEmptyClick}/>
         </div>
         )
     }
