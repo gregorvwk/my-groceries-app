@@ -12,10 +12,11 @@ class Container extends Component {
                 {id: 3, title: "Sla"} 
             ],
             shoppingListItems: [],
-            itemId: 0
+            itemId: 4
         }
         this.handleClickGroceryItem = this.handleClickGroceryItem.bind(this)
         this.handleEmptyClick = this.handleEmptyClick.bind(this)
+        this.inputItem = this.inputItem.bind(this)
     }
 
 
@@ -33,13 +34,16 @@ class Container extends Component {
         this.setState({shoppingListItems: []})
     }
     inputItem(Item){
+        const itemTitle = Item
         this.setState(prevState => {
             const newItemId = prevState.itemId++
+            console.log(newItemId)
             return newItemId
         })
         this.setState(prevState => {
-            const newItem = {id: this.state.itemId, title: Item}
+            const newItem = {id: this.state.itemId, title: itemTitle}
             const addItem = [...prevState.groceryListItems, newItem]
+            console.log(addItem)
             return {groceryListItems: addItem}
         })
     }
