@@ -9,6 +9,7 @@ function ListItem(props){
         title={props.item.title}
     >
         {props.item.title}
+        <p> Amount: {props.item.amount}</p>
     </li>
         )
     

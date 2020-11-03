@@ -13,7 +13,6 @@ class InputField extends Component {
     handleChange(event){
         const {value} = event.target
         this.setState({ newItemName: value })
-        console.log(this.state.newItemName)
     }
     handleClick(e){
         e.preventDefault()

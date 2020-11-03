@@ -4,12 +4,12 @@ import InputField from "./InputField"
 
 function GroceryList(props){
 
-        return (
-            <div>
-                <InputField handleSubmit={props}/>
-                <List item={props} handleClick={props}/>
-            </div>
-        )
+    return (
+        <div>
+            <InputField handleSubmit={props}/>
+            <List item={props} handleClick={props}/>
+        </div>
+    )
 }
 
 export default GroceryList
